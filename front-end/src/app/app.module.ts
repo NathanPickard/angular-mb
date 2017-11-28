@@ -10,6 +10,8 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { WebService } from './web.service';
+import { HttpModule } from '@angular/http';
 import { MessagesComponent } from './messages.component';
 
 
@@ -25,9 +27,10 @@ import { MessagesComponent } from './messages.component';
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
