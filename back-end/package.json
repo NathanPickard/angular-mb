@@ -9,6 +9,7 @@
   "author": "Nathan Pickard <nathan.pickard87@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2"
   }
 }

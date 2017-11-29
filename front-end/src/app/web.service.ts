@@ -4,10 +4,17 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class WebService {
+  BASE_URL = 'http://localhost:63145/api';
 
   constructor(private http: Http) { }
 
   getMessages() {
-    return this.http.get('http://localhost:1234/messages').toPromise();
+    return this.http.get(this.BASE_URL + '/messages').toPromise();
+  }
+
+  postMessage(message) {
+    return this.http.post(this.BASE_URL + '/messages', message).toPromise();
+
+
   }
 }

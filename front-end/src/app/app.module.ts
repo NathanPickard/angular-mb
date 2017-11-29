@@ -11,14 +11,17 @@ import {
 
 import { AppComponent } from './app.component';
 import { WebService } from './web.service';
-import { HttpModule } from '@angular/http';
 import { MessagesComponent } from './messages.component';
+import { NewMessageComponent } from './new-message.component';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent
+    MessagesComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { MessagesComponent } from './messages.component';
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [WebService],
   bootstrap: [AppComponent]
