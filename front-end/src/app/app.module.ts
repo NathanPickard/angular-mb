@@ -15,7 +15,7 @@ import { WebService } from './web.service';
 import { MessagesComponent } from './messages.component';
 import { NewMessageComponent } from './new-message.component';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav.component';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
@@ -59,6 +59,7 @@ var routes = [
     MatToolbarModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [WebService],
