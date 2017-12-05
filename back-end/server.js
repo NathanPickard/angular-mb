@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
 
 var messages = [{ text: 'some text', owner: 'Nate' }, { text: 'other message', owner: 'Jane' }];
 var users = [];
@@ -32,7 +33,13 @@ api.post('/messages', (req, res) => {
 })
 
 auth.post('/register', (req, res) => {
-  users.push(req.body);
+  var index = users.push(req.body) - 1;
+
+  var user = users[index];
+  user.id = index;
+
+  var token = jwt.sign(user.id, '123');
+  res.json({ firstName: user.firstName, token });
 })
 
 app.use('/api', api);
