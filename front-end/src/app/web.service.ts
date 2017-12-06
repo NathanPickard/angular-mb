@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Rx';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class WebService {
@@ -14,8 +15,8 @@ export class WebService {
 
   messages = this.messageSubject.asObservable();
 
-  constructor(private http: Http, private sb: MatSnackBar) {
-    this.getMessages();
+  constructor(private http: Http, private sb: MatSnackBar, private auth: AuthService) {
+    this.getMessages('');
   }
 
   getMessages(user) {
@@ -36,6 +37,10 @@ export class WebService {
     } catch (error) {
       this.handleError("Unable to post message");
     }
+  }
+
+  getUser() {
+    return this.http.get(this.BASE_URL + '/users/me', this.auth.tokenHeader).map(res => res.json());
   }
 
   private handleError(error) {
