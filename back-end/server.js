@@ -29,11 +29,20 @@ api.get('/messages/:user', (req, res) => {
 
 api.post('/messages', (req, res) => {
   messages.push(req.body);
-  res.sendStatus(200);
+  res.json(req.body);
 })
 
 api.get('/users/me', checkAuthenticated, (req, res) => {
   res.json(users[req.user]);
+})
+
+api.post('/users/me', checkAuthenticated, (req, res) => {
+  var user = users[req.user];
+
+  user.firstName = req.body.firstName;
+  user.lastName = req.body.lastName;
+
+  res.json(user);
 })
 
 auth.post('/login', (req, res) => {
