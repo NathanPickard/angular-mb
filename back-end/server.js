@@ -85,6 +85,7 @@ function checkAuthenticated(req, res, next) {
 
   if (!payload)
     return res.status(401).send({ message: 'Unauthorized request. Authentication header invalid' });
+
   req.user = payload;
 
   next();

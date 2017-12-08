@@ -7,10 +7,10 @@ import { WebService } from './web.service';
     <mat-card class="card">
       <mat-card-content>
         <mat-input-container>
-          <input [(ngModel)]="model.firstName" matInput placeholder="First Name">
+          <input matInput [(ngModel)]="model.firstName"  placeholder="First Name">
         </mat-input-container>
         <mat-input-container>
-          <input [(ngModel)]="model.lastName" matInput placeholder="Last Name">
+          <input matInput [(ngModel)]="model.lastName"  placeholder="Last Name">
         </mat-input-container>
           <mat-card-actions>
             <button (click)="post()" mat-raised-button color="primary">Save Changes</button>
